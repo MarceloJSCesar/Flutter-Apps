@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/image_model.dart';
 import '../services/home_service.dart';
+import '../components/home/image_list.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -14,6 +15,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Scaffold build(BuildContext context) {
     return Scaffold(
+      body: ImageList(images: images),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),

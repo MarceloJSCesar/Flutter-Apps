@@ -1,7 +1,7 @@
 class ImageModel {
-  late int id;
-  late String name;
-  late String description;
+  int id;
+  String name;
+  String description;
 
   ImageModel(this.id, this.name, this.description);
 
