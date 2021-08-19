@@ -1,12 +1,13 @@
 import 'dart:convert';
 import 'package:http/http.dart' show get;
-import '/src/models/photo_model.dart';
+import '../models/image_model.dart';
 
 class HomeService {
-  fetchImage(int counter) async {
+  fetchImage(int counter, List<ImageModel> imageModel) async {
     counter++;
     final url = Uri.parse('https://jsonplaceholder.typicode.com/photos');
     final response = await get(url);
-    final photo_model = Photo.fromJson(json.decode(response.body));
+    final image = ImageModel.fromJson(json.decode(response.body));
+    imageModel.add(image);
   }
 }
