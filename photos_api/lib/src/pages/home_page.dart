@@ -10,7 +10,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final _homeServices = HomeService();
-  final List<ImageModel> images = [];
+  List<ImageModel> images = [];
   int counter = 0;
   @override
   Scaffold build(BuildContext context) {
@@ -19,7 +19,15 @@ class _HomePageState extends State<HomePage> {
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: _homeServices.fetchImage(counter, images),
+        onPressed: () async {
+          var result = await _homeServices.fetchImage(counter, images);
+          setState(
+            () {
+              counter++;
+              images.add(result);
+            },
+          );
+        },
       ),
     );
   }

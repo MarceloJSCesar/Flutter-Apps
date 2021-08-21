@@ -3,13 +3,20 @@ import '../../models/image_model.dart';
 
 class ImageList extends StatelessWidget {
   final List<ImageModel> images;
-  ImageList({@required this.images});
+  ImageList({
+    @required this.images,
+  });
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: images.length,
       itemBuilder: (context, int index) {
-        return Container();
+        return Text(
+          images[index].url,
+          style: TextStyle(
+            color: Colors.red,
+          ),
+        );
       },
     );
   }

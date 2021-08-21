@@ -1,17 +1,16 @@
 class ImageModel {
   int id;
-  String name;
-  String description;
+  String url;
+  String title;
 
-  ImageModel(this.id, this.name, this.description);
+  ImageModel(this.id, this.url, this.title);
 
-  ImageModel.fromJson(Map<String, dynamic> jsonParsed) {
-    id = jsonParsed['id'];
-    name = jsonParsed['name'];
-    description = jsonParsed['description'];
+  ImageModel.fromJson(index, jsonParsed) {
+    id = jsonParsed[index]['id'];
+    url = jsonParsed[index]['url'];
+    title = jsonParsed[index]['title'];
   }
 
   @override
-  String toString() =>
-      'Photo Data: id: $id, name: $name, description: $description';
+  String toString() => 'Photo Data: id: $id, url: $url, title: $title,';
 }
