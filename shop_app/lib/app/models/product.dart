@@ -1,5 +1,5 @@
 class Product {
-  bool? isFavorite;
+  bool isFavorite;
   final String? id;
   final String? title;
   final String? price;
