@@ -1,19 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:insta_reels/src/controllers/home_controller.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import './views/home_view.dart';
+import './controllers/home_controller.dart';
 
 class InstaReels extends StatelessWidget {
-  InstaReels({Key? key}) : super(key: key);
+  InstaReels({Key key}) : super(key: key);
 
-  bool get isDarkTheme => HomeController().isDarkTheme;
+  final _homeController = HomeController();
 
   @override
-  MaterialApp build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        brightness: isDarkTheme ? Brightness.dark : Brightness.light,
-      ),
-      home: Container(),
-    );
+  Widget build(BuildContext context) {
+    return Observer(builder: (_) {
+      return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          brightness:
+              _homeController.isDarkTheme ? Brightness.dark : Brightness.light,
+        ),
+        home: HomeView(homeController: _homeController),
+      );
+    });
   }
 }

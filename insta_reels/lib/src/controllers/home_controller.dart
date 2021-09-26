@@ -9,7 +9,12 @@ abstract class _HomeControllerBase with Store {
   bool isDarkTheme = true;
 
   @action
-  changeTheme() {
-    isDarkTheme = !isDarkTheme;
+  changeToDarkTheme(bool value) {
+    isDarkTheme = value;
+  }
+
+  @action
+  changeToLightTheme(bool value) {
+    isDarkTheme = value;
   }
 }

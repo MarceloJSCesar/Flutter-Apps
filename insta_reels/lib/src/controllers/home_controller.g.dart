@@ -28,11 +28,22 @@ mixin _$HomeController on _HomeControllerBase, Store {
       ActionController(name: '_HomeControllerBase');
 
   @override
-  dynamic changeTheme() {
+  dynamic changeToDarkTheme(bool value) {
     final _$actionInfo = _$_HomeControllerBaseActionController.startAction(
-        name: '_HomeControllerBase.changeTheme');
+        name: '_HomeControllerBase.changeToDarkTheme');
     try {
-      return super.changeTheme();
+      return super.changeToDarkTheme(value);
+    } finally {
+      _$_HomeControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic changeToLightTheme(bool value) {
+    final _$actionInfo = _$_HomeControllerBaseActionController.startAction(
+        name: '_HomeControllerBase.changeToLightTheme');
+    try {
+      return super.changeToLightTheme(value);
     } finally {
       _$_HomeControllerBaseActionController.endAction(_$actionInfo);
     }
