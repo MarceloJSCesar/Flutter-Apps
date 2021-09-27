@@ -2,11 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTextStyle {
-  static final TextStyle darkThemeHomeAppBarTextStyle = GoogleFonts.adventPro(
+  // only for dark theme
+  final TextStyle darkThemeHomeAppBarTextStyle = GoogleFonts.adventPro(
     fontSize: 26,
     color: Colors.white,
   );
-  static final TextStyle darkThemeTabBarTextStyle = GoogleFonts.adventPro(
+  final TextStyle darkThemeTabBarTextStyle = GoogleFonts.adventPro(
+    fontSize: 17,
+    color: Colors.white,
+  );
+  final TextStyle darkLabelFieldTextStyle = GoogleFonts.archivo(
     fontSize: 17,
     color: Colors.white,
   );
@@ -14,4 +19,5 @@ class AppTextStyle {
     fontSize: 18,
     color: Colors.white,
   );
+  // only for light theme
 }

@@ -29,8 +29,10 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
         elevation: 0.0,
         centerTitle: true,
         backgroundColor: Colors.transparent,
-        title: Text('InstaReels',
-            style: AppTextStyle.darkThemeHomeAppBarTextStyle),
+        title: Text(
+          'InstaReels',
+          style: AppTextStyle().darkThemeHomeAppBarTextStyle,
+        ),
         actions: [
           IconButton(
               icon: widget.homeController.isDarkTheme
@@ -48,7 +50,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
           child: DefaultTabController(
             length: 2,
             child: TabBar(
-              labelStyle: AppTextStyle.darkThemeTabBarTextStyle,
+              labelStyle: AppTextStyle().darkThemeTabBarTextStyle,
               controller: _tabController,
               tabs: _homeTabs.homeTabs,
             ),
