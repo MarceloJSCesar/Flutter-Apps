@@ -9,7 +9,7 @@ import './models/profile.dart';
 
 /// A Calculator.
 class FlutterInsta {
-  String BASE_URL = "https://www.instagram.com/";
+  String url = "https://www.instagram.com/d__jordan_/?__a=1";
   String _username, _fullname, _profilepicurl, _bio, _followers;
   String _category_name;
   String _videourl,
@@ -47,9 +47,12 @@ class FlutterInsta {
     }
   }
 
+  final uri = Uri.parse('https://www.instagram.com/d__jordan_/?__a=1');
+
   //get profile details
   Future<void> getProfileInfo(String username) async {
-    var response = await http.get(Uri.parse(BASE_URL + username + "/?__a=1"));
+    var response = await http.get(uri);
+    print('response body: ${response.body}');
     final Profile profiles = profileFromJson(response.body);
 
     var user = profiles.graphql.user;

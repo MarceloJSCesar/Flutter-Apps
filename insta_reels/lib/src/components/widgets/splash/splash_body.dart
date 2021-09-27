@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:insta_reels/src/config/app_textstyle.dart';
+import 'package:insta_reels/src/packages/insta_downloader/insta_downloader.dart';
+import 'package:insta_reels/src/services/home_services.dart';
 
 class SplashBody extends StatelessWidget with AppTextStyle {
   final bool validateUsername;
@@ -55,8 +57,12 @@ class SplashBody extends StatelessWidget with AppTextStyle {
               ),
               SizedBox(height: 36),
               ElevatedButton(
-                onPressed: validateUsername ? () {} : null,
-                child: Text('Get Profile'),
+                onPressed: validateUsername
+                    ? () async => await FlutterInsta()
+                        .getProfileInfo('d__jordan_')
+                        .then((value) => value)
+                    : null,
+                child: Text('Get Profile Data'),
               ),
               SizedBox(height: 16),
             ],
