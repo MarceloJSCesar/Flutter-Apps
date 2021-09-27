@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:insta_reels/src/components/classes/home_tabs.dart';
+import 'package:insta_reels/src/components/widgets/custom_alert_dialog.dart';
 import '../config/app_textstyle.dart';
 import '../controllers/home_controller.dart';
 
@@ -17,7 +18,6 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _tabController = TabController(length: 2, vsync: this);
   }
@@ -48,6 +48,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
           child: DefaultTabController(
             length: 2,
             child: TabBar(
+              labelStyle: AppTextStyle.darkThemeTabBarTextStyle,
               controller: _tabController,
               tabs: _homeTabs.homeTabs,
             ),

@@ -6,4 +6,8 @@ class AppTextStyle {
     fontSize: 26,
     color: Colors.white,
   );
+  static final TextStyle darkThemeTabBarTextStyle = GoogleFonts.adventPro(
+    fontSize: 17,
+    color: Colors.white,
+  );
 }
