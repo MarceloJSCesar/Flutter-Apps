@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:insta_reels/src/components/classes/home_tabs.dart';
 import '../config/app_textstyle.dart';
 import '../controllers/home_controller.dart';
 
@@ -10,13 +11,26 @@ class HomeView extends StatefulWidget {
   _HomeViewState createState() => _HomeViewState();
 }
 
-class _HomeViewState extends State<HomeView> with AppTextStyle {
+class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
+  HomeTabs _homeTabs = HomeTabs();
+  TabController _tabController;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _tabController = TabController(length: 2, vsync: this);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
+        centerTitle: true,
         backgroundColor: Colors.transparent,
+        title: Text('InstaReels',
+            style: AppTextStyle.darkThemeHomeAppBarTextStyle),
         actions: [
           IconButton(
               icon: widget.homeController.isDarkTheme
@@ -29,8 +43,16 @@ class _HomeViewState extends State<HomeView> with AppTextStyle {
                   widget.homeController.changeToLightTheme(true);
               }),
         ],
-        title: Text('InstaReels', style: darkThemeHomeAppBarTextStyle),
-        centerTitle: true,
+        bottom: PreferredSize(
+          preferredSize: Size.fromHeight(70),
+          child: DefaultTabController(
+            length: 2,
+            child: TabBar(
+              controller: _tabController,
+              tabs: _homeTabs.homeTabs,
+            ),
+          ),
+        ),
       ),
     );
   }
