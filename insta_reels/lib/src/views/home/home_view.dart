@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:insta_reels/src/components/classes/home_tabs.dart';
 import 'package:insta_reels/src/components/widgets/custom_alert_dialog.dart';
-import '../config/app_textstyle.dart';
-import '../controllers/home_controller.dart';
+import '../../config/app_textstyle.dart';
+import '../../controllers/home_controller.dart';
 
 class HomeView extends StatefulWidget {
   final HomeController homeController;

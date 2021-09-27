@@ -10,4 +10,8 @@ class AppTextStyle {
     fontSize: 17,
     color: Colors.white,
   );
+  final TextStyle darkMyNameTextStyle = GoogleFonts.aldrich(
+    fontSize: 18,
+    color: Colors.white,
+  );
 }

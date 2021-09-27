@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import './views/home_view.dart';
+import 'package:insta_reels/src/config/app_routes_name.dart';
+import 'package:insta_reels/src/views/splash/splash_view.dart';
+import 'views/home/home_view.dart';
 import './controllers/home_controller.dart';
 
-class InstaReels extends StatelessWidget {
+class InstaReels extends StatelessWidget with AppRoutesName {
   InstaReels({Key key}) : super(key: key);
 
   final _homeController = HomeController();
@@ -17,7 +19,11 @@ class InstaReels extends StatelessWidget {
           brightness:
               _homeController.isDarkTheme ? Brightness.dark : Brightness.light,
         ),
-        home: HomeView(homeController: _homeController),
+        initialRoute: splashView,
+        routes: {
+          splashView: (_) => SplashView(),
+          homeView: (_) => HomeView(homeController: _homeController),
+        },
       );
     });
   }
